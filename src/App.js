@@ -4,6 +4,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <div>
+          Frank Uzoka
+      </div>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Happy New Year!! Deployed Happy coding.
