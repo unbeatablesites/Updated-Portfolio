@@ -1,60 +1,62 @@
 import logo from './logo.jpeg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-
+    <Router>
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="#">Frank Uzoka</a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item active">
-                <a className="nav-link" href="#">Front End Work</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Back End Work</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Git Hub</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">LinkedIn</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Resume</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/users">Users</Link>
+            </li>
+          </ul>
         </nav>
-      </div>
 
-      <header className="App-header">
-        <div>
-          Frank Uzoka
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
       </div>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Happy New Year!! Deployed Happy coding.
-        </p>
-        <a
-          className="App-link"
-          href="http://frankuzoka.com"
-          target="_blank"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    </Router>
   );
 }
 
-export default App;
+function Home() {
+  return <h2> To get started with React Router in a web app, you’ll need a React web app. If you need to create one, we recommend you try Create React App. It’s a popular tool that works really well with React Router.First, install create-react-app and make a new project with it.npx create-react-app demo-app
+  cd demo-app</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
+
+
